@@ -73,6 +73,6 @@ extension Dictionary {
 
 extension String {
     var urlEncoded: String {
-        addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)!
     }
 }

@@ -65,7 +65,7 @@ final class HttpRequestTests: XCTestCase {
     }
     
     func testUrlEncode() throws {
-        XCTAssertEqual("How are you?".urlEncoded, "How%20are%20you%3F")
+        XCTAssertEqual("&How are you?".urlEncoded, "%26How%20are%20you%3F")
     }
     
 }
