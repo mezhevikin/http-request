@@ -55,18 +55,16 @@ struct HttpBin: Codable {
     let headers: [String: String]?
 }
 
-HttpRequest(
-    url: "https://httpbin.org/get"
-).json(HttpBin.self) { print($0) }
+HttpRequest(url: "https://httpbin.org/get").json(HttpBin.self) {
+    print($0)
+}
 ```
 
 ### Get Data and String
 
 ```swift
-HttpRequest(
-    url: "https://httpbin.org/get"
-).data() { data, response in
-    if let data = data {
+HttpRequest(url: "https://httpbin.org/get").data() {
+    if let data = $0 {
         let string = String(
             data: data,
             encoding: .utf8
