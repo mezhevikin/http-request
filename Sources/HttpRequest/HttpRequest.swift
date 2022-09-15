@@ -26,7 +26,8 @@ public enum HttpMethod: String {
 extension URLRequest {
     public func data(completion: @escaping ((HttpResponse) -> Void)) {
         URLSession.shared.dataTask(with: self) { data, original, error in
-            let response = HttpResponse(original as! HTTPURLResponse)
+            let response = HttpResponse()
+            response.original = original as! HTTPURLResponse?
             response.data = data
             response.error = error
             completion(response)
@@ -54,12 +55,11 @@ extension URLRequest {
 }
 
 open class HttpResponse {
-    init(_ original: HTTPURLResponse) { self.original = original }
-    public let original: HTTPURLResponse
+    public var original: HTTPURLResponse?
     public var data: Data?
     public var error: Error?
     public var success: Bool {
-        200 ..< 300 ~= original.statusCode && error == nil
+        error == nil && original != nil && 200 ..< 300 ~= original!.statusCode
     }
 }
 

@@ -58,7 +58,7 @@ final class HttpRequestTests: XCTestCase {
         let request = HttpRequest(url: "https://httpbin.org/status/404")
         request.data() { response in
             XCTAssertFalse(response.success)
-            XCTAssertEqual(response.original.statusCode, 404)
+            XCTAssertEqual(response.original?.statusCode, 404)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 30)
