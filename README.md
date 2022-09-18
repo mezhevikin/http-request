@@ -2,7 +2,7 @@
 
 A tiny http client for iOS and macOS. Only [80 lines](Sources/HttpRequest/HttpRequest.swift) of code.
 
-### Get method
+### Get
 
 ```swift
 let request = HttpRequest(
@@ -14,7 +14,7 @@ request.json(HttpBin.self) { json, response in
 }
 ```
 
-### Post method
+### Post
 
 ```swift
 let request = HttpRequest(
@@ -32,7 +32,7 @@ request.json(HttpBin.self) { json, response in
 }
 ```
 
-### Access to URLRequest and HTTPURLResponse
+### URLRequest and HTTPURLResponse
 
 ```swift
 var request = HttpRequest(
@@ -46,7 +46,7 @@ request.json(HttpBin.self) { json, response in
 }
 ```
 
-### Get Json
+### Json
 
 ```swift
 struct HttpBin: Codable {
@@ -60,7 +60,7 @@ HttpRequest(url: "https://httpbin.org/get").json(HttpBin.self) { json, response 
 }
 ```
 
-### Get Data and String
+### Data and String
 
 ```swift
 HttpRequest(url: "https://httpbin.org/get").data() { data, response in
