@@ -1,5 +1,4 @@
 // Mezhevikin Alexey: https://github.com/mezhevikin/http-request
-
 import Foundation
 
 public func HttpRequest(
@@ -23,8 +22,8 @@ public enum HttpMethod: String {
     case get, post, head, put, delete
 }
 
-extension URLRequest {
-    public func data(completion: @escaping ((HttpResponse) -> Void)) {
+public extension URLRequest {
+    func data(completion: @escaping ((HttpResponse) -> Void)) {
         URLSession.shared.dataTask(with: self) { data, original, error in
             let response = HttpResponse()
             response.original = original as! HTTPURLResponse?
@@ -34,7 +33,7 @@ extension URLRequest {
         }.resume()
     }
     
-    public func json<T>(
+    func json<T>(
         _ type: T.Type,
         completion: @escaping ((T?, HttpResponse) -> Void)
     ) -> Void where T : Decodable {
@@ -54,7 +53,7 @@ extension URLRequest {
     }
 }
 
-open class HttpResponse {
+public class HttpResponse {
     public var original: HTTPURLResponse?
     public var data: Data?
     public var error: Error?
