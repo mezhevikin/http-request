@@ -80,3 +80,9 @@ HttpRequest(url: "https://httpbin.org/get").data() { data, response in
 ```
 https://github.com/mezhevikin/http-request.git
 ```
+
+### CocoaPods
+
+```
+pod 'HttpRequest', :git => 'https://github.com/mezhevikin/http-request.git'
+```
