@@ -26,7 +26,7 @@ public extension URLRequest {
     func data(completion: @escaping ((HttpResponse) -> Void)) {
         URLSession.shared.dataTask(with: self) { data, original, error in
             let response = HttpResponse()
-            response.original = original as! HTTPURLResponse?
+            response.original = original as? HTTPURLResponse
             response.data = data
             response.error = error
             completion(response)
