@@ -24,10 +24,10 @@ let request = HttpRequest(
     headers: ["User-Agent": "HttpRequest"]
 )
 request.json(HttpBin.self) { json, response in
-    if response.success {
+    if let json {
          print(json)
-    } else {
-        print(response.error)
+    } else if let error = response.error {
+        print(error)
     }
 }
 ```
@@ -64,7 +64,7 @@ HttpRequest(url: "https://httpbin.org/get").json(HttpBin.self) { json, response 
 
 ```swift
 HttpRequest(url: "https://httpbin.org/get").data() { data, response in
-    if let data = data {
+    if let data {
         let string = String(
             data: data,
             encoding: .utf8

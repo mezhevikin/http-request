@@ -58,7 +58,8 @@ public class HttpResponse {
     public var data: Data?
     public var error: Error?
     public var success: Bool {
-        error == nil && original != nil && 200 ..< 300 ~= original!.statusCode
+        guard let original else { return false }
+        return 200 ..< 300 ~= original.statusCode
     }
 }
 
