@@ -10,7 +10,7 @@ final class HttpRequestTests: XCTestCase {
     }
     
     private let parameters = [
-        "fisrtName": "Alexey",
+        "firstName": "Alexey",
         "lastName": "Mezhevikin"
     ]
     
