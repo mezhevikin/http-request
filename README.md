@@ -86,3 +86,11 @@ https://github.com/mezhevikin/http-request.git
 ```
 pod 'HttpRequest', :git => 'https://github.com/mezhevikin/http-request.git'
 ```
+
+### Links
+
+🌐 [HttpRequest](https://github.com/mezhevikin/http-request-kotlin) for Kotlin/Android
+
+💹 [Best Currency Converter](https://getconverter.org)
+
+☕️ [Buy me a coffee](https://www.buymeacoffee.com/mezhevikin)
